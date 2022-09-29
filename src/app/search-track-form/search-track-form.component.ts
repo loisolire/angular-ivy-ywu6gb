@@ -14,23 +14,16 @@ export class SearchTrackFormComponent implements OnInit {
     Validators.pattern(/^[a-zA-Z]+$/),
   ]);
 
-  constructor(private fetchService: FetchService) {
-    //getAllCompanyData(stock: string): Observable<companyData[]> {
-    //  return this.http.get<companyData[]>(
-    //     `https://finnhub.io/api/v1/search?token=bu4f8kn48v6uehqi3cqg&q=${stock}`
-    //    );
-    //  }
-  }
+  constructor(private fetchService: FetchService) {}
 
   ngOnInit() {
-    this.fetchService.getAllCompanyData('DRT').subscribe({next : 
-      (data) => {
+    this.fetchService.getAllCompanyData('DRT').subscribe({
+      next: (data) => {
         console.log(data);
       },
-      error: 
-      (error) => console.log(error)
-    })
-  };
+      error: (error) => console.log(error),
+    });
+  }
 
   onSubmit() {
     console.warn(this.name);
