@@ -11,7 +11,15 @@ import { Quotes } from './model/quotes';
 export class AppComponent {
   name = 'Angulars ' + VERSION.major;
 
-  quotesList?: Quotes[];
+  private _quotesList: Quotes[];
+
+  get quotesList(): Quotes[] {
+    return JSON.parse(this.localService.getData('list'));
+  }
+
+  set quotesList(quotesList: Quotes[]) {
+    this._quotesList = quotesList;
+  }
 
   constructor(private localService: LocalService) {}
 
