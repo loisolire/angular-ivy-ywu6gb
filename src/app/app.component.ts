@@ -12,7 +12,7 @@ export class AppComponent {
 
   display?: Quote;
 
-  setDisplay(data: Quote) {
-    this.display = data;
+  async setDisplay(data: Observable<Quote>) {
+    this.display = await firstValueFrom(data);
   }
 }

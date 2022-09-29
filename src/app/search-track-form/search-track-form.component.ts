@@ -11,7 +11,7 @@ import { Quote } from '../model/quote';
 })
 export class SearchTrackFormComponent {
   @Output()
-  subbmitForm: EventEmitter<Quote> = new EventEmitter();
+  subbmitForm: EventEmitter<Observable<Quote>> = new EventEmitter();
 
   name = new FormControl('', [
     Validators.maxLength(5),
@@ -22,10 +22,6 @@ export class SearchTrackFormComponent {
   constructor(private fetchService: FetchService) {}
 
   onSubmit() {
-    this.fetchService
-      .getSymbolQuotes(this.name.value)
-      .subscribe((data: Quote) => {
-        this.subbmitForm.emit(data);
-      });
+    this.subbmitForm.emit(this.fetchService.getSymbolQuotes(this.name.value));
   }
 }
