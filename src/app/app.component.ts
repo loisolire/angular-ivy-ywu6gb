@@ -11,13 +11,15 @@ import { Quotes } from './model/quotes';
 export class AppComponent {
   name = 'Angulars ' + VERSION.major;
 
-  quotesList: Quotes[] = JSON.parse(this.localService.getData('list'));
+  quotesList?: Quotes[];
 
-  constructor(private localService: LocalService) {}
+  constructor(private localService: LocalService) {
+    this.quotesList = JSON.parse(this.localService.getData('list'));
+  }
 
   async setList(data: Observable<Quotes>) {
     const newQuotes = await firstValueFrom(data);
-    if (this.quotesList.length === 0) {
+    if (!this.quotesList) {
       this.quotesList = [newQuotes];
     } else {
       this.quotesList = JSON.parse(this.localService.getData('list'));
