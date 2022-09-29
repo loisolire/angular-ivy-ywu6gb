@@ -23,10 +23,14 @@ export class SearchTrackFormComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.fetchService.getAllCompanyData('DRT').subscribe((data)=>{
-          console.log(data);
-      })
-  }
+    this.fetchService.getAllCompanyData('DRT').subscribe({next : 
+      (data) => {
+        console.log(data);
+      },
+      error: 
+      (error) => console.log(error)
+    })
+  };
 
   onSubmit() {
     console.warn(this.name);
