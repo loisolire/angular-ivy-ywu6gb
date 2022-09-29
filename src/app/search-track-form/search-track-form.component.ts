@@ -22,6 +22,7 @@ export class SearchTrackFormComponent {
   constructor(private fetchService: FetchService) {}
 
   onSubmit() {
+    window.localStorage.setItem('toto', 'titi');
     this.subbmitForm.emit(this.fetchService.getSymbolQuotes(this.name.value));
   }
 }
