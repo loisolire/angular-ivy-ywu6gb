@@ -10,9 +10,9 @@ import { Quotes } from './model/quotes';
 export class AppComponent {
   name = 'Angulars ' + VERSION.major;
 
-  display?: Quotes;
+  quotes?: Quotes;
 
   async setDisplay(data: Observable<Quotes>) {
-    this.display = await firstValueFrom(data);
+    this.quotes = await firstValueFrom(data);
   }
 }

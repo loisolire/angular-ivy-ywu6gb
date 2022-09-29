@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Quote } from './model/quote';
+import { Quotes } from './model/quotes';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class FetchService {
   //https://finnhub.io/api/v1/quote?symbol=AAPL&token=bu4f8kn48v6uehqi3cqg
 
   getSymbolQuotes(stock: string): Observable<any> {
-    return this.http.get<Quote>(
+    return this.http.get<Quotes>(
       `https://finnhub.io/api/v1/quote?symbol=${stock}&token=bu4f8kn48v6uehqi3cqg`
     );
   }

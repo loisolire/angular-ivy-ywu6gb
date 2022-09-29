@@ -2,4 +2,4 @@
 <app-search-track-form
   (subbmitForm)="setDisplay($event)"
 ></app-search-track-form>
-<p>{{ display?.c | currency: 'USD':true }}</p>
+<app-stock-panel [quotes]="quotes"></app-stock-panel>

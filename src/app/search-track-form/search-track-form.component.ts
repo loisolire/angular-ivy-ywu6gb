@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { FetchService } from '../fetch.service';
-import { Quote } from '../model/quote';
+import { Quotes } from '../model/quotes';
 
 @Component({
   selector: 'app-search-track-form',
@@ -11,7 +11,7 @@ import { Quote } from '../model/quote';
 })
 export class SearchTrackFormComponent {
   @Output()
-  subbmitForm: EventEmitter<Observable<Quote>> = new EventEmitter();
+  subbmitForm: EventEmitter<Observable<Quotes>> = new EventEmitter();
 
   name = new FormControl('', [
     Validators.maxLength(5),
