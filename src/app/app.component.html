@@ -2,4 +2,4 @@
 <app-search-track-form
   (subbmitForm)="setDisplay($event)"
 ></app-search-track-form>
-<p>{{display | async}}</p>
+<p>{{ display?.currentPrice | currency: 'USD':true }}</p>

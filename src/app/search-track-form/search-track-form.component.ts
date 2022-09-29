@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { FetchService } from '../fetch.service';
+import { Quote } from '../model/quote';
 
 @Component({
   selector: 'app-search-track-form',
@@ -10,7 +11,7 @@ import { FetchService } from '../fetch.service';
 })
 export class SearchTrackFormComponent {
   @Output()
-  subbmitForm: EventEmitter<Observable<any>> = new EventEmitter();
+  subbmitForm: EventEmitter<Quote> = new EventEmitter();
 
   name = new FormControl('', [
     Validators.maxLength(5),
@@ -21,6 +22,10 @@ export class SearchTrackFormComponent {
   constructor(private fetchService: FetchService) {}
 
   onSubmit() {
-    this.subbmitForm.emit(this.fetchService.getAllCompanyData(this.name.value));
+    this.fetchService
+      .getSymbolQuotes(this.name.value)
+      .subscribe((data: Quote) => {
+        this.subbmitForm.emit(data);
+      });
   }
 }

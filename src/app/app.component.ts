@@ -1,5 +1,6 @@
 import { Component, VERSION } from '@angular/core';
 import { firstValueFrom, Observable } from 'rxjs';
+import { Quote } from './model/quote';
 
 @Component({
   selector: 'my-app',
@@ -9,9 +10,9 @@ import { firstValueFrom, Observable } from 'rxjs';
 export class AppComponent {
   name = 'Angulars ' + VERSION.major;
 
-  display?: Promise<any>;
+  display?: Quote;
 
-  setDisplay(obs: Observable<any>) {
-    this.display = firstValueFrom(obs);
+  setDisplay(data: Quote) {
+    this.display = data;
   }
 }
