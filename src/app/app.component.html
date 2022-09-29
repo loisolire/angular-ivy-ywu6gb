@@ -2,4 +2,4 @@
 <app-search-track-form
   (subbmitForm)="setDisplay($event)"
 ></app-search-track-form>
-<app-stock-panel [quotes]="quotes"></app-stock-panel>
+<app-stock-panel [quotes]="quotes" *ngIf="quotes"></app-stock-panel>
