@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { FetchService } from '../fetch.service';
+import { LocalService } from '../local-service';
 import { Quotes } from '../model/quotes';
 
 @Component({
@@ -19,10 +20,12 @@ export class SearchTrackFormComponent {
     Validators.pattern(/^[a-zA-Z]+$/),
   ]);
 
-  constructor(private fetchService: FetchService) {}
+  constructor(
+    private fetchService: FetchService,
+    private localService: LocalService
+  ) {}
 
   onSubmit() {
-    window.localStorage.setItem('toto', 'titi');
     this.subbmitForm.emit(this.fetchService.getSymbolQuotes(this.name.value));
   }
 }

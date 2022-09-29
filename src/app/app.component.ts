@@ -7,10 +7,7 @@ import { Quotes } from './model/quotes';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
-  ngOnInit(): void {
-    window.localStorage.getItem('alpha');
-  }
+export class AppComponent {
   name = 'Angulars ' + VERSION.major;
 
   quotes?: Quotes;
