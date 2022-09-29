@@ -8,20 +8,20 @@ import { Quotes } from './model/quotes';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   name = 'Angulars ' + VERSION.major;
 
   private _quotesList: Quotes[];
 
-  get quotesList(): Quotes[] {
-    return JSON.parse(this.localService.getData('list'));
-  }
-
-  set quotesList(quotesList: Quotes[]) {
-    this._quotesList = quotesList;
-  }
+  quotesList: Quotes[] = JSON.parse(this.localService.getData('list'));
 
   constructor(private localService: LocalService) {}
+
+  ngOnInit(): void {
+    if (!this.localService.getData('list')) {
+      this.localService.saveData('list', JSON.stringify([]));
+    }
+  }
 
   async setList(data: Observable<Quotes>) {
     const newQuotes = await firstValueFrom(data);
