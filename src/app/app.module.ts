@@ -8,7 +8,6 @@ import { SearchTrackFormComponent } from './search-track-form/search-track-form.
 import { HttpClientModule } from '@angular/common/http';
 import { StockPanelComponent } from './stock-panel/stock-panel.component';
 import { CommonModule } from '@angular/common';
-import { StockPanelListComponent } from './stock-panel-list/stock-panel-list.component';
 
 @NgModule({
   imports: [
@@ -23,7 +22,6 @@ import { StockPanelListComponent } from './stock-panel-list/stock-panel-list.com
     HelloComponent,
     SearchTrackFormComponent,
     StockPanelComponent,
-    StockPanelListComponent,
   ],
   bootstrap: [AppComponent],
 })
