@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import requests;
 
 @Component({
   selector: 'app-search-track-form',
@@ -13,7 +14,13 @@ export class SearchTrackFormComponent implements OnInit {
     Validators.pattern(/[a-zA-Z]+/i),
   ]);
 
-  constructor() {}
+  constructor() {
+    //getAllCompanyData(stock: string): Observable<companyData[]> {
+    //  return this.http.get<companyData[]>(
+   //     `https://finnhub.io/api/v1/search?token=bu4f8kn48v6uehqi3cqg&q=${stock}`
+  //    );
+  //  }
+  }
 
   ngOnInit() {}
 
