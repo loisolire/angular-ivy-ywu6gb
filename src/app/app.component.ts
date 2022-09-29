@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   constructor(private localService: LocalService) {}
 
   ngOnInit(): void {
-    if (!this.localService.getData('list')) {
+    if (this.quotesList.length === 0) {
       this.localService.saveData('list', JSON.stringify([]));
     }
   }
