@@ -8,9 +8,16 @@ import { SearchTrackFormComponent } from './search-track-form/search-track-form.
 import { HttpClientModule } from '@angular/common/http';
 import { StockPanelComponent } from './stock-panel/stock-panel.component';
 import { CurrencyDirective } from './shared/currency.directive';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    CommonModule,
+  ],
   declarations: [
     AppComponent,
     HelloComponent,
