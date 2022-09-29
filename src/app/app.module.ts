@@ -7,6 +7,7 @@ import { HelloComponent } from './hello.component';
 import { SearchTrackFormComponent } from './search-track-form/search-track-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StockPanelComponent } from './stock-panel/stock-panel.component';
+import { CurrencyDirective } from './shared/currency.directive';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
@@ -15,6 +16,7 @@ import { StockPanelComponent } from './stock-panel/stock-panel.component';
     HelloComponent,
     SearchTrackFormComponent,
     StockPanelComponent,
+    CurrencyDirective,
   ],
   bootstrap: [AppComponent],
 })

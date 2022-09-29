@@ -1,7 +1,7 @@
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[currency]',
+  selector: '[appCurrency]',
 })
 export class CurrencyDirective {
   constructor(private el: ElementRef) {
