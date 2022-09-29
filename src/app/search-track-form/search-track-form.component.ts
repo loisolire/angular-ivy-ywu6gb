@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { nameValidator } from '../shared/name-validator';
 
 @Component({
   selector: 'app-search-track-form',
@@ -11,7 +10,7 @@ export class SearchTrackFormComponent implements OnInit {
   name = new FormControl('', [
     Validators.maxLength(5),
     Validators.required,
-    nameValidator(/[0-9]+/),
+    Validators.pattern(/[a-zA-Z]+/i),
   ]);
 
   constructor() {}
@@ -19,6 +18,6 @@ export class SearchTrackFormComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    console.warn(this.name);
+    console.warn(this.name.errors);
   }
 }
