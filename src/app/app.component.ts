@@ -1,6 +1,6 @@
 import { Component, VERSION } from '@angular/core';
 import { firstValueFrom, Observable } from 'rxjs';
-import { Quote } from './model/quote';
+import { Quotes } from './model/quotes';
 
 @Component({
   selector: 'my-app',
@@ -10,9 +10,9 @@ import { Quote } from './model/quote';
 export class AppComponent {
   name = 'Angulars ' + VERSION.major;
 
-  display?: Quote;
+  display?: Quotes;
 
-  async setDisplay(data: Observable<Quote>) {
+  async setDisplay(data: Observable<Quotes>) {
     this.display = await firstValueFrom(data);
   }
 }

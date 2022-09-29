@@ -1,4 +1,4 @@
-export type Quote = {
+export type Quotes = {
   pc: number;
   o: number;
   h: number;
