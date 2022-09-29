@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { FetchService } from '../fetch.service';
 
 @Component({
@@ -7,7 +8,10 @@ import { FetchService } from '../fetch.service';
   templateUrl: './search-track-form.component.html',
   styleUrls: ['./search-track-form.component.css'],
 })
-export class SearchTrackFormComponent implements OnInit {
+export class SearchTrackFormComponent {
+  @Output()
+  subbmitForm: EventEmitter<Observable<any>> = new EventEmitter();
+
   name = new FormControl('', [
     Validators.maxLength(5),
     Validators.required,
@@ -16,16 +20,7 @@ export class SearchTrackFormComponent implements OnInit {
 
   constructor(private fetchService: FetchService) {}
 
-  ngOnInit() {
-    this.fetchService.getAllCompanyData('DRT').subscribe({
-      next: (data) => {
-        console.log(data);
-      },
-      error: (error) => console.log(error),
-    });
-  }
-
   onSubmit() {
-    console.warn(this.name);
+    this.subbmitForm.emit(this.fetchService.getAllCompanyData(this.name.value));
   }
 }

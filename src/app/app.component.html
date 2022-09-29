@@ -1,2 +1,5 @@
 <hello name="{{ name }}"></hello>
-<app-search-track-form></app-search-track-form>
+<app-search-track-form
+  (subbmitForm)="setDisplay($event)"
+></app-search-track-form>
+<p>{{display | async}}</p>
