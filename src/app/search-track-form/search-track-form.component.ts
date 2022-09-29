@@ -18,6 +18,6 @@ export class SearchTrackFormComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    console.warn(this.name.errors);
+    console.warn(this.name);
   }
 }

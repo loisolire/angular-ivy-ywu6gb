@@ -4,6 +4,8 @@
       >Enter a symbol of the stock to track (ie AAPL, TSLA, etc...)</label
     >
   </p>
-  <input type="text" [formControl]="name" />
-  <button [disabled]="!name.valid" type="submit">Track stock</button>
+  <input id="stockInput" type="text" [formControl]="name" />
+  <button id="trackBtn" [disabled]="!name.valid" type="submit">
+    Track stock
+  </button>
 </form>
