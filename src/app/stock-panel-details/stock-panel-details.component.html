@@ -1,0 +1,15 @@
+<div class="panel">
+    <ng-container *ngFor="let sentiment of sentiments">
+        <div class="sentiment">
+            <div>
+                Month : {{monthNames[sentiment.month] | uppercase}}
+            </div>
+            <div [ngClass]="sentiment.change >= 0 ? 'up' : 'down'">
+                Change today :
+                <span>{{ sentiment.change}}</span>
+            </div>
+            <div>MSRP :  <span>{{ sentiment.mspr.toFixed(2)}}</span></div>
+        </div>
+    </ng-container>
+</div>
+<button type="button" class="backBtn" (click)="backToList()">Back to list</button>

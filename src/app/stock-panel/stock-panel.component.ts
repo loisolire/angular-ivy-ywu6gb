@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output} from '@angular/core';
 import { Quotes } from '../model/quotes';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-stock-panel',
@@ -11,14 +12,26 @@ export class StockPanelComponent implements OnInit {
   quotes: Quotes;
 
   @Input()
+  symbolName: string;
+
+  @Input()
+  symbol: string;
+
+  @Input()
   index: number;
 
   @Output()
   closePanelEvent: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.quotes.changeToday /= 100;
+  }
+
+  goToSentimentDetails() {
+    this.router.navigate(['/','stock', this.symbol]);
+  }
 
   closePanel() {
     this.closePanelEvent.emit(this.index);

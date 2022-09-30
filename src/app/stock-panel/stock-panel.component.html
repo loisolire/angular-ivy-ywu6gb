@@ -1,21 +1,27 @@
 <div class="line">
+  {{ symbolName }} ({{symbol | uppercase}})
+  <div [ngClass]="['close','remove' + symbol]" (click)="closePanel()">X</div>
+</div>
+<div class="line">
   <div>
-    Change today :
-    <span appCurrency>{{ quotes?.c | currency: 'USD':true }}</span>
+    <span>Change today :</span>
+    <span>{{ quotes?.changeToday | percent:'0.2-2'}}</span>
   </div>
-  <div>
+  <div [ngClass]="quotes.changeToday >= 0 ? 'up' : 'down'">
     Opening price :
-    <span appCurrency>{{ quotes?.o | currency: 'USD':true }}</span>
+    <span>{{ quotes?.openingPrice | currency: 'USD':true }}</span>
   </div>
-  <div class="close" (click)="closePanel()">X</div>
 </div>
 <div class="line">
   <div>
     Current price :
-    <span appCurrency>{{ quotes?.pc | currency: 'USD':true }}</span>
+    <span>{{ quotes?.currentPrice | currency: 'USD':true }}</span>
   </div>
   <div>
     High price :
-    <span appCurrency>{{ quotes?.h | currency: 'USD':true }}</span>
+    <span>{{ quotes?.highPrice | currency: 'USD':true }}</span>
   </div>
+</div>
+<div class="line">
+  <button [class]="'sentiment' +symbol" type="button" (click)="goToSentimentDetails()">Go to social sentiment details</button>
 </div>

@@ -1,6 +1,6 @@
 export type Quotes = {
-  pc: number;
-  o: number;
-  h: number;
-  c: number;
+  changeToday : number;
+  openingPrice : number;
+  currentPrice : number;
+  highPrice : number;
 };

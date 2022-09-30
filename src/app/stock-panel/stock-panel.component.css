@@ -3,15 +3,29 @@
   flex-direction: column;
   border: 1px solid black;
   border-radius: 5px;
-  height: 50px;
+  height: 75px;
   padding: 15px;
+  margin: 10px;
+}
+
+.up::after {
+  content:'🢁';
+  color: green;
+}
+
+.down::after {
+  content:'🢃';
+  color: red;
 }
 
 .line {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.line:first-child {
+  grid-template-columns: 1fr 1fr;
 }
 
 .line span {
@@ -20,6 +34,6 @@
 
 .close {
   text-align: end;
-  width: 100%
-
+  width: 100%;
+  cursor: pointer;
 }
