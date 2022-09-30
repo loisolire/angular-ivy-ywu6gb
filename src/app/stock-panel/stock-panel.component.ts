@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Quotes } from '../model/quotes';
 
 @Component({
@@ -10,7 +10,17 @@ export class StockPanelComponent implements OnInit {
   @Input()
   quotes: Quotes;
 
+  @Input()
+  index: number;
+
+  @Output()
+  closePanelEvent: EventEmitter<number> = new EventEmitter<number>();
+
   constructor() {}
 
   ngOnInit() {}
+
+  closePanel() {
+    this.closePanelEvent.emit(this.index);
+  }
 }

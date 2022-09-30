@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { FetchService } from '../fetch.service';
-import { LocalService } from '../local-service';
+import { FetchService } from '../services/fetch.service';
+import { LocalService } from '../services/local-service';
 import { Quotes } from '../model/quotes';
 
 @Component({
@@ -27,5 +27,6 @@ export class SearchTrackFormComponent {
 
   onSubmit() {
     this.subbmitForm.emit(this.fetchService.getSymbolQuotes(this.name.value));
+    this.name.setValue('');
   }
 }

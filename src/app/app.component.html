@@ -1,7 +1,13 @@
 <hello name="{{ name }}"></hello>
-<app-search-track-form (subbmitForm)="setList($event)"></app-search-track-form>
+<app-search-track-form
+  (subbmitForm)="updateList($event)"
+></app-search-track-form>
 <ng-container *ngIf="quotesList">
-  <ng-container *ngFor="let quotes of quotesList"
-    ><app-stock-panel [quotes]="quotes"></app-stock-panel
+  <ng-container *ngFor="let quotes of quotesList; let index = index"
+    ><app-stock-panel
+      [quotes]="quotes"
+      [index]="index"
+      (closePanelEvent)="removePanel($event)"
+    ></app-stock-panel
   ></ng-container>
 </ng-container>

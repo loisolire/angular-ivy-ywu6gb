@@ -1,6 +1,6 @@
-import { Component, OnInit, VERSION } from '@angular/core';
-import { first, firstValueFrom, Observable } from 'rxjs';
-import { LocalService } from './local-service';
+import { Component, VERSION } from '@angular/core';
+import { firstValueFrom, Observable } from 'rxjs';
+import { LocalService } from './services/local-service';
 import { Quotes } from './model/quotes';
 
 @Component({
@@ -17,7 +17,12 @@ export class AppComponent {
     this.quotesList = JSON.parse(this.localService.getData('list'));
   }
 
-  async setList(data: Observable<Quotes>) {
+  removePanel(index: number) {
+    this.quotesList = this.quotesList.filter((_, i) => i !== index);
+    this.localService.saveData('list', JSON.stringify(this.quotesList));
+  }
+
+  async updateList(data: Observable<Quotes>) {
     const newQuotes = await firstValueFrom(data);
     if (!this.quotesList) {
       this.quotesList = [newQuotes];

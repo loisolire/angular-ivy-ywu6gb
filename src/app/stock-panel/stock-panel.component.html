@@ -7,14 +7,15 @@
     Opening price :
     <span appCurrency>{{ quotes?.o | currency: 'USD':true }}</span>
   </div>
+  <div class="close" (click)="closePanel()">X</div>
 </div>
 <div class="line">
-<div>
-Current price :
-<span appCurrency>{{ quotes?.pc | currency: 'USD':true }}</span>
-</div>
-<div>
-High price :
-<span appCurrency>{{ quotes?.h | currency: 'USD':true }}</span>
-</div>
+  <div>
+    Current price :
+    <span appCurrency>{{ quotes?.pc | currency: 'USD':true }}</span>
+  </div>
+  <div>
+    High price :
+    <span appCurrency>{{ quotes?.h | currency: 'USD':true }}</span>
+  </div>
 </div>

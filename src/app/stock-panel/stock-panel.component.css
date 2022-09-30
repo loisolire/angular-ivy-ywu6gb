@@ -17,3 +17,9 @@
 .line span {
   margin-right: 15px;
 }
+
+.close {
+  text-align: end;
+  width: 100%
+
+}
