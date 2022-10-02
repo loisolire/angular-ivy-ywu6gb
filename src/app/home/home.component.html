@@ -1,16 +1,18 @@
 <app-search-track-form
         (submitForm)="updateList($event)"
 ></app-search-track-form>
-<ng-container *ngIf="quotesList">
-    <ng-container *ngFor="let quotes of quotesList; let index = index"
-    >
-        <app-stock-panel
-                [symbolName]="quotes.name"
-                [symbol] = "quotes.symbol"
-                [quotes]="quotes.quotes"
-                [index]="index"
-                (closePanelEvent)="removePanel($event)"
-        ></app-stock-panel
+<ng-container *ngIf="quotesList.length > 0">
+    <div class="quotes-list">
+        <ng-container *ngFor="let quotes of quotesList; let index = index"
         >
-    </ng-container>
+            <app-stock-panel
+                  [symbolName]="quotes.name"
+                  [symbol] = "quotes.symbol"
+                  [quotes]="quotes.quotes"
+                  [index]="index"
+                  (closePanelEvent)="removePanel($event)"
+            ></app-stock-panel
+            >
+        </ng-container>
+    </div>
 </ng-container>

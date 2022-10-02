@@ -30,7 +30,7 @@ export class StockPanelComponent implements OnInit {
   }
 
   goToSentimentDetails() {
-    this.router.navigate(['/','stock', this.symbol]);
+    this.router.navigate(['/','sentiment', this.symbol]);
   }
 
   closePanel() {

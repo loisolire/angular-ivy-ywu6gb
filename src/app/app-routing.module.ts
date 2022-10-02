@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {RouterModule, Routes} from "@angular/router";
-import {AppComponent} from "./app.component";
-import {HomeComponent} from "./home/home.component";
-import {StockPanelDetailsComponent} from "./stock-panel-details/stock-panel-details.component";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from './home/home.component';
+import {StockPanelDetailsComponent} from './stock-panel-details/stock-panel-details.component';
+import {StockPanelsDetailsResolver} from './stock-panel-details/stock-panels-details.resolver';
 
 const routes: Routes = [
-  { path: 'list', component: HomeComponent },
-  { path:'stock/:symbol', component: StockPanelDetailsComponent}];
+  { path: '', component: HomeComponent },
+  { path:'sentiment/:symbol', component: StockPanelDetailsComponent, resolve: {sentiments: StockPanelsDetailsResolver}}];
 
 @NgModule({
   declarations: [],

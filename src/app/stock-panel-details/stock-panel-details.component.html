@@ -1,15 +1,18 @@
-<div class="panel">
-    <ng-container *ngFor="let sentiment of sentiments">
-        <div class="sentiment">
-            <div>
-                Month : {{monthNames[sentiment.month] | uppercase}}
+<div class="panel" *ngIf="sentiments.length > 0">
+        <ng-container *ngFor="let sentiment of sentiments">
+            <div class="sentiment">
+                <div>
+                    {{monthNames[sentiment.month] | uppercase}}
+                </div>
+                <ng-container *ngIf="sentiment.change; else empty">
+                    <div [ngClass]="sentiment.change >= 0 ? 'up' : 'down'">
+                        Change today :
+                        <span>{{ sentiment.change}}</span>
+                    </div>
+                    <div>MSRP :  <span>{{ sentiment.mspr.toFixed(2)}}</span></div>
+                </ng-container>
             </div>
-            <div [ngClass]="sentiment.change >= 0 ? 'up' : 'down'">
-                Change today :
-                <span>{{ sentiment.change}}</span>
-            </div>
-            <div>MSRP :  <span>{{ sentiment.mspr.toFixed(2)}}</span></div>
-        </div>
-    </ng-container>
-</div>
-<button type="button" class="backBtn" (click)="backToList()">Back to list</button>
+        </ng-container>
+    </div>
+    <button type="button" class="backBtn" (click)="backToList()">Back to list</button>
+    <ng-template #empty><div style="padding-top: 5px;">NO DATA AVAILABLE</div></ng-template>

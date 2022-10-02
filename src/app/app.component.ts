@@ -1,7 +1,4 @@
-import { Component, VERSION } from '@angular/core';
-import { firstValueFrom, Observable } from 'rxjs';
-import { LocalService } from './services/local-service';
-import { Quotes } from './model/quotes';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -9,7 +6,6 @@ import { Quotes } from './model/quotes';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  name = 'Angulars ' + VERSION.major;
 
   constructor() {}
 }

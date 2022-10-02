@@ -35,7 +35,7 @@ export class SearchTrackFormComponent {
              this.name.setValue('');
            }
          },
-         error: err => console.log
+         error: err => console.log(err)
        }
     );
   }

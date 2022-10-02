@@ -1,11 +1,13 @@
 :host {
+  gap: 10px;
   display: flex;
   flex-direction: column;
   border: 1px solid black;
   border-radius: 5px;
-  height: 75px;
   padding: 15px;
   margin: 10px;
+  width: 600px;
+  height: fit-content;
 }
 
 .up::after {
@@ -19,13 +21,9 @@
 }
 
 .line {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.line:first-child {
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .line span {
@@ -33,7 +31,5 @@
 }
 
 .close {
-  text-align: end;
-  width: 100%;
   cursor: pointer;
 }

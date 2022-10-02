@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {forkJoin, Observable, map} from 'rxjs';
 import { Quotes } from '../model/quotes';
 import {Company} from '../model/company';
+import {Sentiment} from "../model/sentiment";
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +11,8 @@ import {Company} from '../model/company';
 export class FetchService {
   constructor(private http: HttpClient) {}
 
-  getSentiments(stock: string, from: string, to: string): Observable<{}>{
-    return this.http.get<{}>(
+  getSentiments(stock: string, from: string, to: string): Observable<{data: Sentiment[]}>{
+    return this.http.get<{data: Sentiment[]}>(
         `https://finnhub.io/api/v1/stock/insider-sentiment?symbol=${stock}&from=${from}&to=${to}&token=bu4f8kn48v6uehqi3cqg`
     )
   }
